@@ -12,8 +12,8 @@ export class BlogPostService {
 
   constructor(private http: HttpClient) { }
 
-  createBlogPost(data: AddBlogPost) : Observable<BlogPost>{
-    console.log(`${environment.apiBaseUrl}/api/BlogPosts`);
+  createBlogPost(data: AddBlogPost) : Observable<BlogPost> {
+    console.log(`${environment.apiBaseUrl}/api/BlogPosts`, data);
    return this.http.post<BlogPost>(`${environment.apiBaseUrl}/api/BlogPosts`, data);
   }
 }

@@ -18,7 +18,7 @@ export class AddBlogpostComponent {
       shortDescription: '',
       urlHandle: '',
       content: '',
-      featuredImageUrl: '',
+      featured: '',
       author: '',
       isVisible: true,
       publishedDate: new Date(),
@@ -29,9 +29,13 @@ export class AddBlogpostComponent {
   onFormSubmit(): void {
     this.blogPostService.createBlogPost(this.model)
     .subscribe({
-      next: (response) => {
+      next: (_response) => {
         console.log('Succes')
         this.router.navigateByUrl('/admin/blogposts');
+      },
+      error: (error)=>{
+        console.log('Error: ' + error.message);
+        
       }
     });
   }

@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterLink} from '@angular/router';
+import { RouterLinkActive } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Core/components/navbar/navbar.component';
 import { CategoryListComponent } from './features/category/category-list/category-list.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
-import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpost-list.component'
+import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpost-list.component';
+import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blogpost.component'
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +22,19 @@ import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpo
     CategoryListComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    BlogpostListComponent
+    BlogpostListComponent,
+    AddBlogpostComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterLink,
+    RouterModule,
+    RouterOutlet,
+    RouterLinkActive,
+    CommonModule,
     HttpClientModule
   ],
   providers: [],

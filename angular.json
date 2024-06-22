@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "codepluse:build:production"
+              "buildTarget": "codepluse:build:production"
             },
             "development": {
-              "browserTarget": "codepluse:build:development"
+              "buildTarget": "codepluse:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "codepluse:build"
+            "buildTarget": "codepluse:build"
           }
         },
         "test": {

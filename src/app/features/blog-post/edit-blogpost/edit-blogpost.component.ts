@@ -15,6 +15,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   id: string | null = null;
   model?: BlogPost;
   categories$? : Observable<Category[]>;
+  selectedCategories?: string[];
 
 
   routeSubscription?: Subscription;
@@ -30,9 +31,9 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    
     this.categories$ = this.categoryService.getAllCategories();
-
-
+    
     this.routeSubscription = this.route.paramMap.subscribe({
       next: (params) => {
         this.id = params.get('id');
@@ -42,6 +43,8 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
           this.getBlogPostSubscription = this.blogPostService.getBlogPostById(this.id).subscribe({
             next: (response) => {
               this.model = response;
+              this.selectedCategories = response.categories.map(x => x.id);
+
             }
           });
           ;

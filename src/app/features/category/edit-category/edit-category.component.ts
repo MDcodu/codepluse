@@ -54,7 +54,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy{
       .updateCategory(this.id, updateCategoryRequest)
       .subscribe({
         next: (response) => {
-          this.router.navigateByUrl('/admin/Categories');
+          this.router.navigateByUrl('/admin/categories');
         }
       });
     }
@@ -65,7 +65,7 @@ export class EditCategoryComponent implements OnInit,OnDestroy{
       this.categoryService.deleteCategory(this.id)
       .subscribe({
         next: (response) => {
-          this.router.navigateByUrl('/admin/Categories');
+          this.router.navigateByUrl('/admin/categories');
         }
       });
     }
